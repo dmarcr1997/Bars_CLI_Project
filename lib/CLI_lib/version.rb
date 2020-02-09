@@ -1,3 +1,3 @@
-module CLIProject
+module BarFinder
     VERSION = "0.1.0"
   end
