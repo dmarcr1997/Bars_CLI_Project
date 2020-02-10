@@ -14,11 +14,22 @@ class EventCog::Event
         @@all
     end
 
+    def list(count)
+        puts "#{count + 1}. #{self.name}: #{self.venue} at #{self.location} on #{self.date}\n url: #{self.url}\n\n"
+    end
+
     def self.find_by_name(name)
         self.all.find{|event| event.name == name}
     end 
 
     def self.find_by_date(date)
-        self.all.collect {|event|event.date.strip("-").to_i >= date.strip("-").to_i} 
+        events = []
+        self.all.collect do |event|
+            if event.date.split("-").join.to_i >= date.split("-").join.to_i
+                events << event
+            else
+            end
+        end
+        events 
     end
 end
