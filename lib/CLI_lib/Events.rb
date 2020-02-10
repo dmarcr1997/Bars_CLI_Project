@@ -31,7 +31,7 @@ class EventCog::Event
     def self.find_by_date(date)
         events = []
         self.all.collect do |event|
-            if event.date.split("/*- / /").join.to_i >= date.split("-").join.to_i
+            if event.date.split("-").join.to_i >= date.split("-").join.to_i
                 events << event
             else
             end
