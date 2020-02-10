@@ -1,4 +1,4 @@
-class EventFinder::Events
+class EventCog::Events
     @@all = []
     attr_reader :name, :venue, :location, :url, :date
     def initialize(name, venue, location, url, date)
