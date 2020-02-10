@@ -23,7 +23,7 @@ class EventCog::CLI
             get_num_events if input == "number"
             upcoming if input == "upcoming event"
             get_event_by_date if input == "date"
-            # get_all_events if input == "Let's See it All"
+            get_all_events if input == "Let's See it All"
             puts "What else would you like to do"
             input = gets.strip
         end
@@ -71,11 +71,11 @@ class EventCog::CLI
             end
         end
     end
-         
 
-
-
-        
-        
+    def get_all_events
+        puts "Drum Roll Please\n\n"
+        puts "Here are all the event I have for now: "
+        EventCog::Event.list_all
+    end
 
 end
