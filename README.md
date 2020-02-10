@@ -1,6 +1,6 @@
 # EventCog
 
-Hello Welcome to EventCog. This is a ClI application to find upcoming events in the United States. It used a TicketMaster API to get upcoming events in the USA. To run the program enter bin/events.
+Hello Welcome to EventCog. This is a CLI application to find upcoming events in the United States. It uses a TicketMaster API to get upcoming events in the USA. To run the program enter bin/events.
 ## Installation
 
 Add this line to your application's Gemfile:

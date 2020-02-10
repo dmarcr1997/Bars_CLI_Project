@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Damon"]
   spec.email         = ["dmarcr1997@gmail.com"]
 
-  spec.summary       = %q{application to find nearby events}
-  spec.description   = %q{user enters zip code and a list of nearby events are listed to the user.}
+  spec.summary       = %q{application to find events}
+  spec.description   = %q{user enters choice and a list of events are listed to the user.}
   spec.homepage      = "http://helloworld.com"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
