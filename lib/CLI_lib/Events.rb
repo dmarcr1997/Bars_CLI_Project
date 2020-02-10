@@ -1,4 +1,6 @@
 class EventCog::Event
+    include EventCog
+
     @@all = []
     attr_accessor :name, :venue, :location, :url, :date
     def initialize(info_hash)
@@ -15,13 +17,8 @@ class EventCog::Event
     end
 
     def list(count)
-        puts "#{count + 1}. #{self.name}: #{self.venue} at #{self.location}; on #{self.date}\n url: #{self.url}\n\n"
-    end
-
-    def self.list_all
-        self.all.each_with_index do |event, index|
-            puts "#{index + 1}. #{event.name}: #{event.venue} at #{event.location}; on #{event.date}\n url: #{event.url}\n\n"
-        end
+        output = "#{count + 1}. #{self.name}: #{self.venue} at #{self.location}; on #{self.date}\n url: #{self.url}\n\n"
+        puts '' +cyan(output)+ ''
     end
 
     def self.find_by_name(name)
