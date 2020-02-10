@@ -1,3 +1,3 @@
-module BarFinder
+module EventCog
     VERSION = "0.1.0"
   end

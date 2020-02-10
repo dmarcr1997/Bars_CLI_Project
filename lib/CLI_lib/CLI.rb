@@ -1,5 +1,5 @@
-class BarFinder::CLI
+class EventFinder::CLI
     def call
-       BarFinder::API.new.fetch
+       EventFinder::API.new.fetch
     end
 end

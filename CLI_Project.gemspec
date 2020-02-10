@@ -1,13 +1,13 @@
 require_relative 'lib/CLI_lib/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "BarFinder"
-  spec.version       = BarFinder::VERSION
+  spec.name          = "EventCog"
+  spec.version       = EventCog::VERSION
   spec.authors       = ["Damon"]
   spec.email         = ["dmarcr1997@gmail.com"]
 
-  spec.summary       = %q{application to find nearby bars}
-  spec.description   = %q{user enters zip code and a list of nearby bars are listed to the user.}
+  spec.summary       = %q{application to find nearby events}
+  spec.description   = %q{user enters zip code and a list of nearby events are listed to the user.}
   spec.homepage      = "http://helloworld.com"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
@@ -31,6 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 12.0"
   spec.add_development_dependency "pry"
   spec.add_dependency "nokogiri"
-  
+  spec.add_development_dependency "httparty"
   
 end
