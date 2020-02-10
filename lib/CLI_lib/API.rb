@@ -1,6 +1,6 @@
 class EventCog::API
     def fetch
-        key  = "Dsx3B7yXadkKedSMijHAO6G4U64oQBkG"
+        key = ENV.fetch('TICKETMASTER_KEY')
         url = "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=#{key}"
         response = HTTParty.get(url)
         response.parsed_response

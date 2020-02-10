@@ -25,13 +25,30 @@ class EventCog::CLI
     end
 
     def run(input) 
+        did_run = false
         while input != "exit"
-            get_num_events if input == "number"
-            upcoming if input == "upcoming event"
-            get_event_by_date if input == "date"
-            get_all_events if input == "Let's See it All"
-            puts '' +yellow("What else would you like to do")+ ''
-            input = gets.strip
+            if input == 'number'
+                get_num_events
+                did_run = true 
+            elsif input == "upcoming event"
+                upcoming
+                did_run = true
+            elsif input == "date"
+                get_event_by_date
+                did_run = true
+            elsif input == "Let's See it All"
+                get_all_events
+                did_run = true
+            end
+            if input !='exit' && did_run == false
+                puts '' +red('Sorry that choic is invalid') + ''
+                puts '' +yellow('Enter What you would like to do') + ''
+                input = gets.strip
+            else
+                puts '' +yellow("What else would you like to do")+ ''
+                input = gets.strip
+                did_run = false
+            end
         end
         puts '' +white("-------------------------") + ''
         puts '' +yellow("Thank you For using EventCog") + '' 

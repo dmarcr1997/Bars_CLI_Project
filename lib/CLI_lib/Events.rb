@@ -30,7 +30,6 @@ class EventCog::Event
         self.all.collect do |event|
             if event.date.split("-").join.to_i >= date.split("-").join.to_i
                 events << event
-            else
             end
         end
         if events.empty?

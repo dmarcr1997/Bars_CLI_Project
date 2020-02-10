@@ -2,11 +2,13 @@ PATH
   remote: .
   specs:
     EventCog (0.1.0)
+      dotenv
 
 GEM
   remote: https://rubygems.org/
   specs:
     coderay (1.1.2)
+    dotenv (2.7.5)
     httparty (0.17.3)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)

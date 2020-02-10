@@ -4,6 +4,8 @@ require_relative "CLI_lib/API"
 require_relative "CLI_lib/Events"
 require 'pry'
 require 'httparty'
+require 'dotenv'
+Dotenv.load
 
 module EventCog
 
@@ -11,8 +13,9 @@ module EventCog
     "\e[#{color_code}m#{text}\e[0m"
   end
   
-  # def red(text) 
-  #     colorize(text, 31); end
+  def red(text) 
+      colorize(text, 31)
+  end
   # def green(text) 
   #     colorize(text, 32)
   # end
