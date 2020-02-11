@@ -18,7 +18,7 @@ class EventCog::CLI
 
     def create_events
         events = []
-        events = EventCog::API.new.fetch
+        events = EventCog::API.new.fetch_api
         events.each do |e|
              EventCog::Event.new(e)
         end
