@@ -41,7 +41,7 @@ class EventCog::CLI
                 did_run = true
             end
             if input !='exit' && did_run == false
-                puts '' +red('Sorry that choic is invalid') + ''
+                puts '' +red('Sorry that choice is invalid') + ''
                 puts '' +yellow('Enter What you would like to do') + ''
                 input = gets.strip
             else

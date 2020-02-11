@@ -18,7 +18,8 @@ Or install it yourself as:
     $ gem install EventCog
 
 Prerequisites:
-    This gem includes 'httparty'. So when you run bundle install this library should be installed. If not then include 'httparty' in your gem file 
+    Ticket Master API key enter on API page or use .env and set a 'TICKETMASTER_KEY' equal to your API key
+    This gem includes 'httparty' and 'dotenv'. So when you run bundle install this library should be installed. If not then include 'httparty' and 'dotenv' in your gem file 
 
 ## Usage
 
