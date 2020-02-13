@@ -17,24 +17,21 @@ class EventCog::CLI
     end
 
     def create_events
-        events = []
-        events = EventCog::API.new.fetch_api
-        events.each do |e|
-             EventCog::Event.new(e)
-        end
+        EventCog::API.new.fetch_api
+        binding.pry
     end
 
     def run(input) 
         did_run = false
         while input != "exit"
             if input == 'number'
-                get_num_events
+                input = "exit" if get_num_events == false 
                 did_run = true 
             elsif input == "upcoming event"
-                upcoming
+                input = "exit" if upcoming == false
                 did_run = true
             elsif input == "date"
-                get_event_by_date
+                input = "exit" if get_event_by_date == false
                 did_run = true
             elsif input == "Let's See it All"
                 get_all_events
@@ -44,7 +41,7 @@ class EventCog::CLI
                 puts '' +red('Sorry that choice is invalid') + ''
                 puts '' +yellow('Enter What you would like to do') + ''
                 input = gets.strip
-            else
+            elsif input != 'exit' 
                 puts '' +yellow("What else would you like to do")+ ''
                 input = gets.strip
                 did_run = false
@@ -57,7 +54,11 @@ class EventCog::CLI
     def get_num_events
         count = 0
         puts '' +yellow("How many events would you like to see") + ''
-        num = gets.strip.to_i
+        num = gets.strip
+        if num == 'exit'
+            return false
+        end
+        num.to_i
         puts '' +white("-------------------------") + ''
         EventCog::Event.all.each do |event|
             if count >= num
@@ -68,11 +69,15 @@ class EventCog::CLI
             count +=1
         end
         puts '' +white("-------------------------") + ''
+        true
     end 
         
     def upcoming
         puts '' +yellow("What event would you like me to try to find?")+ ''
         search = gets.strip
+        if search == 'exit'
+            return false
+        end
         puts '' +white("-------------------------") + ''
         find = EventCog::Event.find_by_name(search)
         if find == nil
@@ -82,12 +87,16 @@ class EventCog::CLI
             find.list(0)
         end
         puts '' +white("-------------------------") + ''
+        true
     end
 
     def get_event_by_date
         count = 0
         puts ''+yellow("What date would you like to look for(format:yyyy-mm-dd)?") +''
         search = gets.strip
+        if search == 'exit'
+            return false
+        end
         puts '' +white("-------------------------") + ''
         find = EventCog::Event.find_by_date(search)
         if find == nil
@@ -100,6 +109,7 @@ class EventCog::CLI
             end
         end
         puts '' +white("-------------------------") + ''
+        true
     end
 
     def get_all_events
