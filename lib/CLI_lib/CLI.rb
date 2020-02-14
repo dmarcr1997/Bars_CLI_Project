@@ -1,7 +1,7 @@
 class EventCog::CLI
     include EventCog
 
-    @@on_open_messages = ["Enter 'number' to get a number of events to browse upcoming events in the US", "Enter 'upcoming event' to see if we have more information", "Enter 'date' to get all event on and after that date", "Enter 'Let's See it All' to see up to 20 events", "When you are finished enter 'exit'"]
+    @@on_open_messages = ["Enter 'number' to get a number of events to browse upcoming events in the US", "Enter 'upcoming events' to see if we have more information", "Enter 'date' to get all event on and after that date", "Enter 'Let's See it All' to see up to 20 events", "When you are finished enter 'exit'"]
     attr_accessor :events
     def call
         create_events
@@ -18,7 +18,7 @@ class EventCog::CLI
 
     def create_events
         EventCog::API.new.fetch_api
-        binding.pry
+        # binding.pry
     end
 
     def run(input) 
@@ -27,7 +27,7 @@ class EventCog::CLI
             if input == 'number'
                 input = "exit" if get_num_events == false 
                 did_run = true 
-            elsif input == "upcoming event"
+            elsif input == "upcoming events"
                 input = "exit" if upcoming == false
                 did_run = true
             elsif input == "date"
@@ -80,7 +80,7 @@ class EventCog::CLI
         end
         puts '' +white("-------------------------") + ''
         find = EventCog::Event.find_by_name(search)
-        if find == nil
+        if find.empty?
             puts '' +cyan('Sorry I cannot find anything on that yet try back later.') + ''
         else
             puts "\n"
