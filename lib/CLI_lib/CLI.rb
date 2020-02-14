@@ -54,11 +54,11 @@ class EventCog::CLI
     def get_num_events
         count = 0
         puts '' +yellow("How many events would you like to see") + ''
-        num = gets.strip
-        if num == 'exit'
+        input = gets.strip
+        if input == 'exit'
             return false
         end
-        num.to_i
+        num = input.to_i
         puts '' +white("-------------------------") + ''
         EventCog::Event.all.each do |event|
             if count >= num
@@ -84,7 +84,9 @@ class EventCog::CLI
             puts '' +cyan('Sorry I cannot find anything on that yet try back later.') + ''
         else
             puts "\n"
-            find.list(0)
+            find.each_with_index do |event, index|
+                event.list(index)
+            end
         end
         puts '' +white("-------------------------") + ''
         true

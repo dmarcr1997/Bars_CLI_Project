@@ -13,13 +13,3 @@ class EventCog::API
         end 
     end
 end
-
-
-# user_input = gets.strip
-# search_names = []
-# Event.all.collect do |e| 
-#     if e.name[0] == user_input
-#         search_names << e
-#     end
-# end
-# search_names

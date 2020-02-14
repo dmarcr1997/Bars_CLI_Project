@@ -22,20 +22,12 @@ class EventCog::Event
     end
 
     def self.find_by_name(name)
-        self.all.find{|event| event.name == name}
+        self.all.find_all{|event| event.name == name}
     end 
 
     def self.find_by_date(date)
-        events = []
-        self.all.collect do |event|
-            if event.date.split("-").join.to_i >= date.split("-").join.to_i
-                events << event
-            end
-        end
-        if events.empty?
-            nil
-        else
-            events 
+        self.all.select do |event|
+             event.date.split("-").join.to_i >= date.split("-").join.to_i
         end
     end
 end
