@@ -2,4 +2,4 @@
 
 require "./lib/environment"
 
-EventCog::CLI.new.call
+EventCog::CLI.new.call #on run this starts application loop

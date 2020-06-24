@@ -9,7 +9,7 @@ Dotenv.load
 
 module EventCog
 
-  def colorize(text, color_code)
+  def colorize(text, color_code) #text color functions
     "\e[#{color_code}m#{text}\e[0m"
   end
   
